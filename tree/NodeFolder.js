@@ -1,5 +1,4 @@
-import { promises as fsPromises} from 'fs';
-// import { join as joinPath } from 'path';
+import { promises as fsPromises } from 'fs';
 import { Folder } from '../model/Folder.js';
 import { NodeFactory } from './NodeFactory.js';
 
@@ -7,6 +6,14 @@ export class NodeFolder {
     constructor(name, path) {
         this.folder = new Folder(name, path);
         this.nextNodes = [];
+    }
+
+    get nextNodes() {
+        return this.nextNodes;
+    }
+
+    get folder() {
+        return this.folder;
     }
 
     buildNextNodes = async () => {

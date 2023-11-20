@@ -1,30 +1,27 @@
 import { Node, NodeFolder, NodeFile } from '../model/Node';
-import { File } from '../model/File'
-import { Folder } from '../model/Folder'
+import { Save } from '../model/Save'
 
 export class NodeFactory {
-  public getNode (type: string, value, next: File | Node): Node {
+  public getNode (type: string, value, next: Array<Save>): Node {
     if (type === 'file') {
-      const file: File = {
-        name: "FileName",
-        path: "path",
-        content: "content",
-      }
       const nodeFile: NodeFile = {
-        value: file,
+        value:  {
+          name: "FileName",
+          path: "path",
+          content: "content",
+        },
         next: undefined
       }
       return nodeFile
     } else {
-      const file: Folder = {
-        name: "FileName",
-        path: "path",
+      const nodeFolder: NodeFolder = {
+        value: {
+          name: "FileName",
+          path: "path",
+        },
+        next
       }
-      const nodeFile: NodeFolder = {
-        value: file,
-        next: nextNode
-      }
-      return nodeFile
+      return nodeFolder
     }
   }
 }

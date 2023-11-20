@@ -1,9 +1,8 @@
-import { File } from "./File.ts"
-import { Folder } from "./Folder.ts"
+import { Save, File, Folder } from "./Save.ts"
 
 export type Node = {
-  value: Folder | File;
-  next: Folder | File | undefined;
+  value: Save;
+  next: Array<Save> | undefined;
 }
 
 export interface NodeFile extends Node {
@@ -13,5 +12,5 @@ export interface NodeFile extends Node {
 
 export interface NodeFolder extends Node {
   value: Folder;
-  next: Folder | File;
+  next: Array<Save>;
 }
